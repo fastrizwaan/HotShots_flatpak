@@ -9,8 +9,9 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --device=dri
-  - --filesystem=host
-
+  - --filesystem=home
+  - --share=network
+  
 modules:
 - name: HotShots
   sources:
