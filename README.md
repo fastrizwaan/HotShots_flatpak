@@ -14,3 +14,13 @@ flatpak-builder --install --user --force-clean build-dir io.github.HotShots.yml
 ```
 #### Run
 `flatpak run io.github.HotShots.yml`
+
+#### Build a flatpak bundle file from the above built repo:
+```
+flatpak-builder --repo="repo" --force-clean "build" io.github.HotShots.yml
+flatpak --user remote-add --no-gpg-verify "io.github.HotShots" "repo"
+flatpak build-bundle "repo" "io.github.HotShots.flatpak" io.github.HotShots  --runtime-repo="https://flathub.org/repo/flathub.flatpakrepo"
+
+flatpak --user install io.github.HotShots.flatpak
+flatpak run io.github.HotShots
+```
